@@ -1,6 +1,16 @@
+.head{
+    padding: 2rem;
+    background-color: black;
+}
+
 #home{
     background-image: url(../images/bg01.jpg);
+    background-size: cover;
     height: 100vh;
+}
+
+.bookingForm{
+    opacity: .9;
 }
 
 // .footer{
