@@ -1,9 +1,12 @@
+@import "resets";
+@import "footer";
+
+
 .head{
-    padding: 2rem;
     background-color: black;
 }
 
-#home{
+.home{
     background-image: url(../images/bg01.jpg);
     background-size: cover;
     height: 100vh;
@@ -13,7 +16,6 @@
     opacity: .9;
 }
 
-// .footer{
-//     background-color: black;
-//     height: 100px;
-// }
+footer{
+    height: 50px;
+}
