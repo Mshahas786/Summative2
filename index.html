@@ -14,27 +14,42 @@
 </head>
 
 <body>
-  <div id="" class="home">
+  <div id="homePage">
 
-    <div class="row py-4 head">
-      <div class="container">
-        <div class="row"> <img src="images/logo01.png" alt="">
+  <div class="py-4 head fixed-top">
+    
+    <div class="container ">
+      <div class="">
+
+        <div class="">
+          <img src="images/logo01.png" alt="">
           <h3 class=" text-light">TOURISM NEW ZEALAND</h3>
         </div>
-      </div>
+
+        <div class="">
+        <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+        </div>
+
+        </div>
     </div>
 
+  </div>
+    
 
-    <div class="card-body col-sm-8 col-md-7 col-lg-6 mx-auto rounded bookingForm">
-
-      <!-- <h3 class="">Find Your car</h3> -->
-
-
-      <form class="needs-validation" novalidate>
+   
+ 
 
 
+    <div id="searchInputs" class="container align-items-center ">
 
-        <div class="form-row">
+      <h1 class="container text-dark text-center ">"Life is a trip, Plan your next vacation here"</h1>
+
+
+      <form class="needs-validation container bg-light p-3 mb-3 rounded" novalidate>
+
+
+
+        <div class="form-row clearfix">
 
           <div class="col-md-6 mb-3">
             <label for="">Pick-up</label>
@@ -62,12 +77,25 @@
           </div>
         </div>
 
-        <div class="mb-3">
+
+        <div class="form-row clearfix">
+
+        
+        <div class="col-md-9 mb-3">
           <label for="validationCustom03">Way points</label>
           <input type="text" class="form-control" id="validationCustom05" required>
         </div>
 
-        <div class="form-row">
+        <div class="col-md-3  mb-3">
+          <label for="validationCustom05">No.of peoples</label>
+          <input type="number" class="form-control" id="validationCustom05" required>
+          <div class="invalid-feedback">
+            Please select
+          </div>
+        </div>
+
+      </div>
+        <div class="form-row clearfix">
 
           <div class="col-md-6 mb-3">
             <label for="validationCustom03">Drop-off</label>
@@ -95,18 +123,205 @@
           </div>
         </div>
 
-        <button class="btn btn-dark btn-lg btn-block " type="submit">Find a vehicle </button>
+        <button id="vechicleSearchBtn" class="btn btn-dark btn-lg btn-block " type="submit">Find a vehicle </button>
       </form>
+      
+    </div>
 
+<div class="container resultsPage mt-15">
+
+  <div class="row">
+
+  <div id="filter" class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 mb-3">
+
+    <h4 class="bg-dark text-light p-2 rounded">Filter by</h4>
+  <form class="bg-light text-dark p-3 rounded" action="index.html" method="post">
+    
+
+    <input  id="motorbike" type="checkbox" name="" value="checked">
+    <label  for="motorbike">Motorbike</label> <br>
+
+    <input class="" id="car" type="checkbox" name="" value="checked">
+    <label class="" for="car">Car</label> <br>
+
+    <input class="" id="suv" type="checkbox" name="" value="checked">
+    <label class="" for="suv">SUV</label> <br>
+
+    <input class="" id="motorHome" type="checkbox" name="" value="checked">
+    <label class="" for="motorHome">Motor Home</label> <br>
+
+
+    <!-- <button id="showChoice" class="btn btn-lg bg-white border border-primary text-danger h5 font-weight-bold" type="button" name="button">Apply Filter</button> -->
+    
+  </form>
+
+  </div>
+
+  
+
+
+  <div id="results" class=" col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 mb-3">
+
+    <div class="card mb-3">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="..." class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
     </div>
 
 
-<footer class="bg-light fixed-bottom">
+
+    <div class="card mb-3">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="..." class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card mb-3">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="..." class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="..." class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="..." class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="..." class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="..." class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card mb-3">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="..." class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card mb-3">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="..." class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+
+
+
+<footer class=" fixed-bottom">
   <div class="container">
-    <div class="row">
+    <div class="row clearfix">
       <div class="col">
-        <img src="images/logo-nz.svg" alt="">
+        
     </div>
+    <div class="col">
+      <img src="images/logo-nz.svg" alt="">
+  </div>
+
+  <div class="col">
+    
+</div>
   </div>
 </div>
 </footer>
