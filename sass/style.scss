@@ -2,9 +2,9 @@
 @import "footer";
 
 
-.mt-15{
-    margin-top: 14rem;
-}
+// .mt-15{
+//     margin-top: 14rem;
+// }
 
 .head{
     background-color: black;
@@ -12,10 +12,11 @@
 }
 
 #homePage{
-width: 100%;
+min-height: 100vh;
 background-image: url(../images/bg01.jpg);
 background-size: cover;
 background-attachment: fixed;
-height: 100vh;
+
 }
+
 
