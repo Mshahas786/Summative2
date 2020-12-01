@@ -44,7 +44,7 @@ var vehicles = [
     doors : 5,
     seats : 4,
     minPeople : 1,
-    maxpeople : 2,
+    maxPeople : 2,
     minDay : 1,
     maxDay : 10,
     cost : 129,
@@ -62,7 +62,7 @@ var vehicles = [
     doors : 5,
     seats : 4,
     minPeople : 1,
-    maxpeople : 2,
+    maxPeople : 2,
     minDay : 1,
     maxDay : 10,
     cost : 129,
@@ -80,7 +80,7 @@ var vehicles = [
     doors : 5,
     seats : 4,
     minPeople : 1,
-    maxpeople : 2,
+    maxPeople : 2,
     minDay : 1,
     maxDay : 10,
     cost : 129,
@@ -97,7 +97,7 @@ var vehicles = [
     doors : 5,
     seats : 4,
     minPeople : 1,
-    maxpeople : 2,
+    maxPeople : 2,
     minDay : 1,
     maxDay : 10,
     cost : 129,
@@ -116,7 +116,7 @@ var vehicles = [
     doors : 5,
     seats : 7,
     minPeople : 1,
-    maxpeople : 5,
+    maxPeople : 5,
     minDay : 3,
     maxDay : 10,
     cost : 144,
@@ -134,7 +134,7 @@ var vehicles = [
     doors : 5,
     seats : 7,
     minPeople : 1,
-    maxpeople : 5,
+    maxPeople : 5,
     minDay : 3,
     maxDay : 10,
     cost : 144,
@@ -153,7 +153,7 @@ var vehicles = [
     doors : 5,
     seats : 7,
     minPeople : 1,
-    maxpeople : 5,
+    maxPeople : 5,
     minDay : 3,
     maxDay : 10,
     cost : 144,
@@ -171,7 +171,7 @@ var vehicles = [
     doors : 5,
     seats : 7,
     minPeople : 1,
-    maxpeople : 5,
+    maxPeople : 5,
     minDay : 3,
     maxDay : 10,
     cost : 144,
@@ -189,69 +189,135 @@ var vehicles = [
     doors : 3,
     seats : 8,
     minPeople : 2,
-    maxpeople : 6,
+    maxPeople : 6,
     minDay : 2,
     maxDay : 15,
     cost : 200,
     fuel : '17/100km',
-    photo : 'kiaRio.png' 
+    photo : 'chausson.png' 
   },
 
   {
     id : 302 ,
-    name : 'A-Class',
-     model : 'chausson',
+    name : '4 Berth',
+     model : 'Mercedes',
     type : 'Motor home',
     trans: 'Automatic',
     year : '2019',
     doors : 3,
     seats : 8,
     minPeople : 2,
-    maxpeople : 6,
+    maxPeople : 6,
     minDay : 2,
     maxDay : 15,
     cost : 200,
     fuel : '17/100km',
-    photo : 'kiaRio.png' 
+    photo : '4Berth.png' 
   },
 
   {
     id : 303 ,
-    name : 'A-Class',
-     model : 'chausson',
+    name : 'Ducato',
+     model : 'Fiat',
     type : 'Motor home',
     trans: 'Automatic',
     year : '2019',
     doors : 3,
     seats : 8,
     minPeople : 2,
-    maxpeople : 6,
+    maxPeople : 6,
     minDay : 2,
     maxDay : 15,
     cost : 200,
     fuel : '17/100km',
-    photo : 'kiaRio.png' 
+    photo : 'ducato.png' 
   },
 
   {
     id : 304 ,
-    name : 'A-Class',
-     model : 'chausson',
+    name : 'Tribute',
+     model : 'Trigano',
     type : 'Motor home',
     trans: 'Automatic',
     year : '2019',
     doors : 3,
     seats : 8,
     minPeople : 2,
-    maxpeople : 6,
+    maxPeople : 6,
     minDay : 2,
     maxDay : 15,
     cost : 200,
     fuel : '17/100km',
-    photo : 'kiaRio.png' 
-  }
+    photo : 'tribute.png' 
+  },
 
-  
+  {
+    id : 401 ,
+    name : 'YZFR15e',
+     model : 'Yamaha',
+    type : 'Motor bike',
+    trans: 'manual',
+    year : '2019',
+    seats : 2,
+    minPeople : 1,
+    maxPeople : 1,
+    minDay : 2,
+    maxDay : 5,
+    cost : 109,
+    fuel : '3.7/100km',
+    photo : 'YZFR15e.png' 
+  },
+
+  {
+    id : 402 ,
+    name : 'Cbr1000rr',
+     model : 'Honda',
+    type : 'Motor bike',
+    trans: 'manual',
+    year : '2019',
+    seats : 2,
+    minPeople : 1,
+    maxPeople : 1,
+    minDay : 2,
+    maxDay : 5,
+    cost : 109,
+    fuel : '3.7/100km',
+    photo : 'Cbr1000rr.png' 
+  },
+
+  {
+    id : 403 ,
+    name : 'S1000rr',
+     model : 'Bmw',
+    type : 'Motor bike',
+    trans: 'manual',
+    year : '2019',
+    seats : 2,
+    minPeople : 1,
+    maxPeople : 1,
+    minDay : 2,
+    maxDay : 5,
+    cost : 109,
+    fuel : '3.7/100km',
+    photo : 'S1000rr.png' 
+  },
+
+  {
+    id : 404 ,
+    name : 'Bullet 350',
+     model : 'Royal Enfield',
+    type : 'Motor bike',
+    trans: 'manual',
+    year : '2019',
+    seats : 2,
+    minPeople : 1,
+    maxPeople : 1,
+    minDay : 2,
+    maxDay : 5,
+    cost : 109,
+    fuel : '3.7/100km',
+    photo : 'bullet350.png' 
+  }
 
 ];
 
@@ -309,6 +375,8 @@ filterVehicles(days,people);
 
 
 }
+
+
 function filterVehicles(d,p) {
   var i;
   console.log(vehicles);
@@ -316,9 +384,9 @@ function filterVehicles(d,p) {
   var vehicleType =[];
   
   for (i=0; i< vehicles.length; i++ ){
-    console.log( vehicles[i].maxDay , vehicles[i].minDay,  vehicles[i].maxpeople ,vehicles[i].minPeople);
+    console.log( vehicles[i].maxDay , vehicles[i].minDay,  vehicles[i].maxPeople ,vehicles[i].minPeople);
     
-    if (((d < vehicles[i].maxDay) && (d > vehicles[i].minDay)) && ((p < vehicles[i].maxpeople) && (p > vehicles[i].minPeople))) {
+    if (((d < vehicles[i].maxDay) && (d > vehicles[i].minDay)) && ((p < vehicles[i].maxPeople) && (p > vehicles[i].minPeople))) {
       console.log(vehicles[i].name);
       if (!((vehicleType).includes(vehicles[i].type))) {
         vehicleType.push(vehicles[i].type);
