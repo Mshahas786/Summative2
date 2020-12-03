@@ -13,7 +13,7 @@ var vehicles = [
     minDay : 1,
     maxDay : 10,
     cost : 129,
-    fuel : '8.5/100km',
+    fuel : '8.5',
     photo : 'nissanLeaf.png' 
   },
 
@@ -31,7 +31,7 @@ var vehicles = [
     minDay : 1,
     maxDay : 10,
     cost : 129,
-    fuel : '8.5/100km',
+    fuel : '8.5',
     photo : 'suzukiSwift.png' 
   },
 
@@ -49,7 +49,7 @@ var vehicles = [
     minDay : 1,
     maxDay : 10,
     cost : 129,
-    fuel : '8.5/100km',
+    fuel : '8.5',
     photo : 'volkswagenVento.png' 
   },
   {
@@ -66,7 +66,7 @@ var vehicles = [
     minDay : 1,
     maxDay : 10,
     cost : 129,
-    fuel : '8.5/100km',
+    fuel : '8.5',
     photo : 'kiaRio.png' 
   },
 
@@ -85,7 +85,7 @@ var vehicles = [
     minDay : 3,
     maxDay : 10,
     cost : 144,
-    fuel : '9.7/100km',
+    fuel : '9.7',
     photo : 'kiaSorento.png' 
   },
 
@@ -103,7 +103,7 @@ var vehicles = [
     minDay : 3,
     maxDay : 10,
     cost : 144,
-    fuel : '9.7/100km',
+    fuel : '9.7',
     photo : 'mazdacx-9.png' 
   },
 
@@ -122,7 +122,7 @@ var vehicles = [
     minDay : 3,
     maxDay : 10,
     cost : 144,
-    fuel : '9.7/100km',
+    fuel : '9.7',
     photo : 'rangeRoverEvoque.png' 
   },
 
@@ -140,7 +140,7 @@ var vehicles = [
     minDay : 3,
     maxDay : 10,
     cost : 144,
-    fuel : '9.7/100km',
+    fuel : '9.7',
     photo : 'toyotaFortuner.png' 
   },
 
@@ -158,7 +158,7 @@ var vehicles = [
     minDay : 2,
     maxDay : 15,
     cost : 200,
-    fuel : '17/100km',
+    fuel : '17',
     photo : 'chausson.png' 
   },
 
@@ -176,7 +176,7 @@ var vehicles = [
     minDay : 2,
     maxDay : 15,
     cost : 200,
-    fuel : '17/100km',
+    fuel : '17',
     photo : '4Berth.png' 
   },
 
@@ -194,7 +194,7 @@ var vehicles = [
     minDay : 2,
     maxDay : 15,
     cost : 200,
-    fuel : '17/100km',
+    fuel : '17',
     photo : 'ducato.png' 
   },
 
@@ -212,7 +212,7 @@ var vehicles = [
     minDay : 2,
     maxDay : 15,
     cost : 200,
-    fuel : '17/100km',
+    fuel : '17',
     photo : 'tribute.png' 
   },
 
@@ -229,7 +229,7 @@ var vehicles = [
     minDay : 1,
     maxDay : 5,
     cost : 109,
-    fuel : '3.7/100km',
+    fuel : '3.7',
     photo : 'YZFR15e.png' 
   },
 
@@ -246,7 +246,7 @@ var vehicles = [
     minDay : 1,
     maxDay : 5,
     cost : 109,
-    fuel : '3.7/100km',
+    fuel : '3.7',
     photo : 'Cbr1000rr.png' 
   },
 
@@ -263,7 +263,7 @@ var vehicles = [
     minDay : 1,
     maxDay : 5,
     cost : 109,
-    fuel : '3.7/100km',
+    fuel : '3.7',
     photo : 'S1000rr.png' 
   },
 
@@ -280,7 +280,7 @@ var vehicles = [
     minDay : 1,
     maxDay : 5,
     cost : 109,
-    fuel : '3.7/100km',
+    fuel : '3.7',
     photo : 'bullet350.png' 
   }
 
@@ -289,6 +289,8 @@ var vehicles = [
 
 var script = '<script src="https://maps.googleapis.com/maps/api/js?key='+ key +'&callback=initMap&libraries=places&v=weekly" async defer></script>';
  console.log(script);
+
+////////////////////////////////////////////////////////////////////////////////////////
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
  (function () {
@@ -309,8 +311,10 @@ var script = '<script src="https://maps.googleapis.com/maps/api/js?key='+ key +'
     }, false);
   })();
 
+//////////////////////////////////////////////////////////////////////////////////////
 
   $('.resultsPage').hide();
+  $('#bookingAddress').hide();
 
 $(document).ready(function () {
   $('body').append(script);
@@ -320,6 +324,22 @@ $(document).ready(function () {
     $('.resultsPage').show();
   }); 
 
+
+  $('#bookNow').click(function () {
+    swal({
+      title: "Booking Confirmed",
+      text: "Your booking id: C01300",
+      icon: "success",
+    });
+  }); 
+
+
+  $('.getQuote').click(function () {
+    $('#searchInputs').hide();
+    $('.resultsPage').hide();
+    $('#bookingAddress').show();
+  });
+  
 
 });
 
@@ -360,20 +380,24 @@ $('#vechicleSearchBtn').click(function(){
 
 });
 
+var days, people;
+
 function dateDiff(){
 var start = $(pickupDate).datepicker('getDate');
 var end = $(dropoffDate).datepicker('getDate');
 
-var days = (end-start)/1000/60/60/24; //to get human readable days
+days = (end-start)/1000/60/60/24; //to get human readable days
 console.log(days);
 
-var people = parseInt($('#noOfPeoples').val());
+people = parseInt($('#noOfPeoples').val());
 console.log(people);
 
 filterVehicles(days,people);
 
 
+
 }
+
 
 
 
@@ -422,29 +446,37 @@ const map = new google.maps.Map(document.getElementById("map"), {
 
 
 document.getElementById("vechicleSearchBtn").addEventListener("click", () => {
- calculateAndDisplayRoute(directionsService, directionsRenderer);
-});
-}
 
 
-function calculateAndDisplayRoute(directionsService, directionsRenderer) {
-const waypts = [];
-const checkboxArray = document.getElementById("wayPoints");
+  var i;
+for (i=0; i< vehicles.length; i++ ){
+  console.log( vehicles[i].maxDay , vehicles[i].minDay,  vehicles[i].maxPeople ,vehicles[i].minPeople);
 
-for (let i = 0; i < checkboxArray.length; i++) {
- if (checkboxArray.options[i].selected) {
-   waypts.push({
-     location: checkboxArray[i].value,
-     stopover: true,
-   });
- }
-}
+  if (((days <= vehicles[i].maxDay) && (days >= vehicles[i].minDay)) && ((people <= vehicles[i].maxPeople) && (people>= vehicles[i].minPeople))) {
+    console.log(days, vehicles[i].cost);
+     calculateAndDisplayRoute(directionsService, directionsRenderer, days, vehicles[i].cost, vehicles[i].fuel);
+       
+  }
+}//for
+ 
+});//vehicleSearchBtn
+}//initMap
+
+
+function calculateAndDisplayRoute(directionsService, directionsRenderer, d, cost, fuel) {
+var wayPts = [];
+ wayPts.push({
+  location : document.getElementById("wayPoints").value,
+  stopover : true
+ }) 
+ console.log(wayPts);
+
 
 directionsService.route(
  {
    origin: document.getElementById("pickup").value,
    destination: document.getElementById("dropoff").value,
-   waypoints: waypts,
+   waypoints: wayPts,
    optimizeWaypoints: true,
    travelMode: google.maps.TravelMode.DRIVING,
  },
@@ -453,10 +485,10 @@ directionsService.route(
      console.log(response);
      directionsRenderer.setDirections(response);
      const route = response.routes[0];
-     const summaryPanel = document.getElementById("directions-panel");
+     const summaryPanel = document.getElementById("directionsPanel");
 
      summaryPanel.innerHTML = "";
-
+     var grandTotal;
      // For each route, display summary information.
      for (let i = 0; i < route.legs.length; i++) {
        const routeSegment = i + 1;
@@ -465,7 +497,14 @@ directionsService.route(
        summaryPanel.innerHTML += route.legs[i].start_address + " to ";
        summaryPanel.innerHTML += route.legs[i].end_address + "<br>";
        summaryPanel.innerHTML +=
-         route.legs[i].distance.text + " and it takes " + route.legs[i].duration.text + " to reach."+ "<br><br>";
+       route.legs[i].distance.text + " and it takes " + route.legs[i].duration.text + " to reach."+ "<br><br>";
+       console.log(d, cost, fuel, parseInt(route.legs[i].distance.text) );
+       
+        var total = (d * cost) + (parseInt(route.legs[i].distance.text) / 100 * parseInt(fuel) *2);
+        console.log(total);
+        grandTotal += total;
+        console.log(grandTotal);
+        
      }
 
    } else {
@@ -498,19 +537,28 @@ function filterVehicles(d,p) {
   }
   console.log(vehicleType);
   addFilterType(vehicleType);
+  // filterType(vehicleType);
+  
   
 }
+
+
+
+
 
 
 function addFilterType(type){
   console.log(type);
   for (i=0; i< type.length; i++ ){
     $('#vehicleType').append('<div class="form-check">'+
-    '<input class="form-check-input" type="checkbox" value="" id="">'+
+    '<input class="form-check-input selectItem" type="checkbox" value="" id="' + type[i] + '">'+
     '<label class="form-check-label" for="defaultCheck1">'+ type[i] +'</label>'+
   '</div>')
   }
-  
+//  $('.selectItem').change(function(){
+//    var itemSelected = $()
+
+//  })
 }
 
 
@@ -530,9 +578,11 @@ function addFilterType(type){
           '<h6 class="col-6">' + vehicles[j].company + '</h6>'+
           '<h6 class="card-title col-6">' + vehicles[j].trans + '</h6>'+
           '<h6 class="card-title col-6">' + vehicles[j].year + '</h6>'+
+          '<h6 class="card-title col-6">$' + vehicles[j].cost + '/Day</h6>'+
+          '<h6 class="card-title col-6">' + vehicles[j].fuel + 'L/100Km</h6>'+
           '<div class="col-12">'+
           '<h4 class="text-right"> $' + vehicles[j].cost + '</h4>'+
-          '<button href="#" class=" btn btn-success float-right">Book Now</button>'+
+          '<button id=" " href="#" class=" btn btn-success float-right getQuote">Get Quote</button>'+
         '</div>'+
         '</div>'+
     '</div>'+
@@ -541,4 +591,12 @@ function addFilterType(type){
 
 );// append ends here
 }; //displayCards
+
+
+function filterType(type){
+  for (i=0; i< type.length; i++ ){
+
+  }
+}
+
 
