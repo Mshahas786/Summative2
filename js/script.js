@@ -466,10 +466,6 @@ function initMap() {
 
 }//// initMap END HERE //////
 
-var grandTotal = ;
-
-console.log(grandTotal);
-
 function calculateAndDisplayRoute(directionsService, directionsRenderer, d, cost, fuel) {
   var wayPts = [];
   wayPts.push({
@@ -518,6 +514,7 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer, d, cost
         }
         console.log(rental + grandFuel);
 
+        grandTotal = rental + grandFuel;
       
       
         console.log(grandTotal);
