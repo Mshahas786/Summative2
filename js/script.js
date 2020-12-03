@@ -13,7 +13,7 @@ var vehicles = [
     minDay : 1,
     maxDay : 10,
     cost : 129,
-    fuel : '8.5',
+    fuel : 8.5,
     photo : 'nissanLeaf.png' 
   },
 
@@ -31,7 +31,7 @@ var vehicles = [
     minDay : 1,
     maxDay : 10,
     cost : 129,
-    fuel : '8.5',
+    fuel : 8.5,
     photo : 'suzukiSwift.png' 
   },
 
@@ -49,7 +49,7 @@ var vehicles = [
     minDay : 1,
     maxDay : 10,
     cost : 129,
-    fuel : '8.5',
+    fuel : 8.5,
     photo : 'volkswagenVento.png' 
   },
   {
@@ -66,7 +66,7 @@ var vehicles = [
     minDay : 1,
     maxDay : 10,
     cost : 129,
-    fuel : '8.5',
+    fuel : 8.5,
     photo : 'kiaRio.png' 
   },
 
@@ -85,7 +85,7 @@ var vehicles = [
     minDay : 3,
     maxDay : 10,
     cost : 144,
-    fuel : '9.7',
+    fuel : 9.7,
     photo : 'kiaSorento.png' 
   },
 
@@ -103,7 +103,7 @@ var vehicles = [
     minDay : 3,
     maxDay : 10,
     cost : 144,
-    fuel : '9.7',
+    fuel : 9.7,
     photo : 'mazdacx-9.png' 
   },
 
@@ -122,7 +122,7 @@ var vehicles = [
     minDay : 3,
     maxDay : 10,
     cost : 144,
-    fuel : '9.7',
+    fuel : 9.7,
     photo : 'rangeRoverEvoque.png' 
   },
 
@@ -140,7 +140,7 @@ var vehicles = [
     minDay : 3,
     maxDay : 10,
     cost : 144,
-    fuel : '9.7',
+    fuel : 9.7,
     photo : 'toyotaFortuner.png' 
   },
 
@@ -158,7 +158,7 @@ var vehicles = [
     minDay : 2,
     maxDay : 15,
     cost : 200,
-    fuel : '17',
+    fuel : 17,
     photo : 'chausson.png' 
   },
 
@@ -176,7 +176,7 @@ var vehicles = [
     minDay : 2,
     maxDay : 15,
     cost : 200,
-    fuel : '17',
+    fuel : 17,
     photo : '4Berth.png' 
   },
 
@@ -194,7 +194,7 @@ var vehicles = [
     minDay : 2,
     maxDay : 15,
     cost : 200,
-    fuel : '17',
+    fuel : 17,
     photo : 'ducato.png' 
   },
 
@@ -212,7 +212,7 @@ var vehicles = [
     minDay : 2,
     maxDay : 15,
     cost : 200,
-    fuel : '17',
+    fuel : 17,
     photo : 'tribute.png' 
   },
 
@@ -229,7 +229,7 @@ var vehicles = [
     minDay : 1,
     maxDay : 5,
     cost : 109,
-    fuel : '3.7',
+    fuel : 3.7,
     photo : 'YZFR15e.png' 
   },
 
@@ -246,7 +246,7 @@ var vehicles = [
     minDay : 1,
     maxDay : 5,
     cost : 109,
-    fuel : '3.7',
+    fuel : 3.7,
     photo : 'Cbr1000rr.png' 
   },
 
@@ -263,7 +263,7 @@ var vehicles = [
     minDay : 1,
     maxDay : 5,
     cost : 109,
-    fuel : '3.7',
+    fuel : 3.7,
     photo : 'S1000rr.png' 
   },
 
@@ -280,7 +280,7 @@ var vehicles = [
     minDay : 1,
     maxDay : 5,
     cost : 109,
-    fuel : '3.7',
+    fuel : 3.7,
     photo : 'bullet350.png' 
   }
 
@@ -454,6 +454,7 @@ for (i=0; i< vehicles.length; i++ ){
 
   if (((days <= vehicles[i].maxDay) && (days >= vehicles[i].minDay)) && ((people <= vehicles[i].maxPeople) && (people>= vehicles[i].minPeople))) {
     console.log(days, vehicles[i].cost);
+
      calculateAndDisplayRoute(directionsService, directionsRenderer, days, vehicles[i].cost, vehicles[i].fuel);
        
   }
@@ -488,7 +489,9 @@ directionsService.route(
      const summaryPanel = document.getElementById("directionsPanel");
 
      summaryPanel.innerHTML = "";
-     var grandTotal;
+     var grandFuel = 0;
+     var rental = (d * cost) ;
+     console.log( rental);
      // For each route, display summary information.
      for (let i = 0; i < route.legs.length; i++) {
        const routeSegment = i + 1;
@@ -500,12 +503,18 @@ directionsService.route(
        route.legs[i].distance.text + " and it takes " + route.legs[i].duration.text + " to reach."+ "<br><br>";
        console.log(d, cost, fuel, parseInt(route.legs[i].distance.text) );
        
-        var total = (d * cost) + (parseInt(route.legs[i].distance.text) / 100 * parseInt(fuel) *2);
-        console.log(total);
-        grandTotal += total;
-        console.log(grandTotal);
+        var fuelCost = (parseInt(route.legs[i].distance.text) / 100 * parseInt(fuel) *2);
+        console.log(typeof(fuelCost), fuelCost);
+        grandFuel += fuelCost;
+        console.log(grandFuel);
         
      }
+     console.log(rental + grandFuel);
+
+      var grandTotal = rental + grandFuel;
+      
+      displayCards(grandTotal)
+      
 
    } else {
      window.alert("Directions request failed due to " + status);
@@ -581,7 +590,7 @@ function addFilterType(type){
           '<h6 class="card-title col-6">$' + vehicles[j].cost + '/Day</h6>'+
           '<h6 class="card-title col-6">' + vehicles[j].fuel + 'L/100Km</h6>'+
           '<div class="col-12">'+
-          '<h4 class="text-right"> $' + vehicles[j].cost + '</h4>'+
+          '<h4 id="' + vehicles[j].id + " class="text-right"></h4>'+
           '<button id=" " href="#" class=" btn btn-success float-right getQuote">Get Quote</button>'+
         '</div>'+
         '</div>'+
