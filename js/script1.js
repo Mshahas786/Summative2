@@ -434,7 +434,6 @@ function initMap() {
 
 
     var i;
-    var totalArray = [];
     for (i = 0; i < vehicles.length; i++) {
       console.log(vehicles[i].maxDay, vehicles[i].minDay, vehicles[i].maxPeople, vehicles[i].minPeople);
 
@@ -442,48 +441,18 @@ function initMap() {
         console.log(days, vehicles[i].cost);
 
         displayCards(i);
-
-      
-
-
-        var wayPts = [];
-  wayPts.push({
-    location: document.getElementById("wayPoints").value,
-    stopover: true
-  })
-  console.log(wayPts);
-
-  
-
- 
-        calculateAndDisplayRoute(directionsService, directionsRenderer, days, vehicles[i].cost, vehicles[i].fuel);
-        console.log(grandTotal);
-        totalArray.push(grandTotal);
-        getQuote(i);
+        // calculateAndDisplayRoute(directionsService, directionsRenderer, days, vehicles[i].cost, vehicles[i].fuel);
 
       }
     }//for
-console.log(totalArray);
-
 
   });//vehicleSearchBtn
 
   // var grandTotal;
 
-function getQuote(j){
-$('.getQuote').click(function(){
 
-  console.log(this.id);
-  var i=0;
-  for (i = 0; i < vehicles.length; i++) {
-  if (parseInt(this.id ) === vehicles[j].id) {
-    $('#directionsPanel').append ('<h4> Cost for the journey is $ ' + grandTotal + '</h4>');
 
-  }
-}
-    
-  })
-}
+
 
   // function filterVehicles(d, p) {
   //   var i;
@@ -559,7 +528,7 @@ $('.getQuote').click(function(){
 
 } //// initMap END HERE //////
 
-var grandTotal;
+
 
 //distance
 function calculateAndDisplayRoute(directionsService, directionsRenderer, d, cost, fuel) {
@@ -588,7 +557,6 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer, d, cost
 
         summaryPanel.innerHTML = "";
         var grandFuel = 0;
-        
         var rental = (d * cost);
         console.log(rental);
         // For each route, display summary information.
@@ -617,15 +585,14 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer, d, cost
 
         console.log(grandTotal);
 
-
       } else {
         window.alert("Directions request failed due to " + status);
       }
-      // console.log(grandTotal);
-      // return grandTotal;
+      console.log(grandTotal);
+      return grandTotal;
     }
   );
-  // console.log(totalCost);
+  console.log(totalCost);
   
 }
 
