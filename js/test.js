@@ -321,7 +321,6 @@ var vehicles = [
     $('body').append(script);
   
     $('#vechicleSearchBtn').click(function () {
-      // $('body').append(script);
       $('#searchInputs').hide();
       $('.resultsPage').show();
     });
@@ -483,8 +482,8 @@ var vehicles = [
         '<h6 class="card-title col-6">$' + vehicles[j].cost + '/Day</h6>' +
         '<h6 class="card-title col-6">' + vehicles[j].fuel + 'L/100Km</h6>' +
         '<div class="col-6">' +
-        '<h4 id="cost'+j+'" class="text-right "></h4>' +
-        '<button id=" ' + vehicles[j].id + '" href="#" class=" btn btn-success float-right getQuote ">Get Quote</button>' +
+        '<h4 id="cost' + j + '" class="text-right "></h4>' +
+        '<button id=" ' + vehicles[j].id + '" href="#" class=" btn btn-success float-right getQuote" onclick="getQuote()">Get Quote</button>' +
         '</div>' +
         '</div>' +
         '</div>' +
@@ -492,9 +491,9 @@ var vehicles = [
         '</div>'
   
       );// append ends here
-      
+  
       calculateAndDisplayRoute(j, directionsService, directionsRenderer, days, vehicles[j].cost, vehicles[j].fuel);
-      
+  
     }; //displayCards
   
   }; //// initMap END HERE //////
@@ -503,11 +502,11 @@ var vehicles = [
   
   //distance
   function calculateAndDisplayRoute(index, directionsService, directionsRenderer, d, cost, fuel) {
-    
+  
     var wayPts = [];
     wayPts.push({
-    location: document.getElementById("wayPoints").value,
-    stopover: true
+      location: document.getElementById("wayPoints").value,
+      stopover: true
     })
   
   
@@ -521,9 +520,9 @@ var vehicles = [
       },
       (response, status) => {
         if (status === "OK") {
-
-        //   console.log(response);
-
+  
+          //   console.log(response);
+  
           directionsRenderer.setDirections(response);
           const route = response.routes[0];
           const summaryPanel = document.getElementById("directionsPanel");
@@ -571,15 +570,12 @@ var vehicles = [
   
   }
   
-  $(document).ready(function () {
-  
-
-  $('.getQuote').click(function () {
+  function getQuote(vechileDetails) {
+    console.log(vechileDetails)
     $('#bookingAddress').show();
     $('.resultsPage').hide();
-    
-  });
-
+  }
+  
   $('#bookNow').click(function () {
     swal({
       title: "Booking Confirmed",
@@ -587,5 +583,3 @@ var vehicles = [
       icon: "success",
     });
   });
-  
-});
