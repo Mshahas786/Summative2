@@ -1,5 +1,5 @@
 # Summative2
-# Airbnb JavaScript Style Guide() {
+# Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
 
