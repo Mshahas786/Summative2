@@ -325,20 +325,6 @@ var vehicles = [
       $('#searchInputs').hide();
       $('.resultsPage').show();
     });
-
-    $('').click(function () {
-        $('#bookingAddress').show();
-        $('.resultsPage').hide();
-        
-      });
-    
-      $('#bookNow').click(function () {
-        swal({
-          title: "Booking Confirmed",
-          text: "Your booking id: C01300",
-          icon: "success",
-        });
-      });
   
   
   });
@@ -585,7 +571,21 @@ var vehicles = [
   
   }
   
+  $(document).ready(function () {
   
 
+  $('.getQuote').click(function () {
+    $('#bookingAddress').show();
+    $('.resultsPage').hide();
+    
+  });
+
+  $('#bookNow').click(function () {
+    swal({
+      title: "Booking Confirmed",
+      text: "Your booking id: C01300",
+      icon: "success",
+    });
+  });
   
-  
+});
