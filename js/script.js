@@ -543,7 +543,7 @@ function calculateAndDisplayRoute(
   );
 }
 
-function getQuote(vechileDetails) {
+function getQuote() {
   $("#bookingAddress").show();
   $(".resultsPage").hide();
 }
