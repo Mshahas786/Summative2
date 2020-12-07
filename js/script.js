@@ -283,14 +283,14 @@ var vehicles = [
   },
 ];
 
-//////////////////////////////////  ARRAYS END HERE   /////////////////////////////////////////////////////
+////  ARRAYS END HERE   ////
 
 var script =
   '<script src="https://maps.googleapis.com/maps/api/js?key=' +
   key +
   '&callback=initMap&libraries=places&v=weekly" async defer></script>';
 
-//////////////////////////////////  INPUT VALIDATOR  //////////////////////////////////////////////////////
+/////  INPUT VALIDATOR  ////
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
@@ -319,7 +319,7 @@ var script =
   );
 })();
 
-///////////////////////////////////  CLICK FUNCTIONS  ///////////////////////////////////////////////////
+///  CLICK FUNCTIONS  /////
 
 $(".resultsPage").hide();
 $("#bookingAddress").hide();
@@ -333,9 +333,10 @@ $(document).ready(function () {
   });
 });
 
-/////////////////////////     INITMAP     //////////////////////////////////////////////
+////     INITMAP     /////
 
 function initMap() {
+  var  days, people ;
   ////      Date calculation     ////
 
   $("#pickupDate").datepicker({
@@ -365,8 +366,9 @@ function initMap() {
   });
 
   function dateDiff() {
-    var start = $(pickupDate).datepicker("getDate");
-    var end = $(dropoffDate).datepicker("getDate");
+    
+    var start = $('#pickupDate').datepicker("getDate");
+    var end = $('#dropoffDate').datepicker("getDate");
 
     days = (end - start) / 1000 / 60 / 60 / 24; //to get human readable days
 
@@ -474,7 +476,7 @@ function initMap() {
       vehicles[j].fuel
     );
   } //displayCards
-} //// initMap END HERE //////
+} //// initMap END HERE ////
 
 //distance
 function calculateAndDisplayRoute(
@@ -501,7 +503,7 @@ function calculateAndDisplayRoute(
     },
     (response, status) => {
       if (status === "OK") {
-        //   console.log(response);
+        
 
         directionsRenderer.setDirections(response);
         const route = response.routes[0];
@@ -510,6 +512,7 @@ function calculateAndDisplayRoute(
         summaryPanel.innerHTML = "";
         var grandFuel = 0;
         var rental = d * cost;
+        
 
         // For each route, display summary information.
         for (let i = 0; i < route.legs.length; i++) {
