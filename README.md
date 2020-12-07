@@ -6,6 +6,11 @@
 ## 3. Comments
 ## 4. Operators
 ## 5. Conditional-structure-if
+### 6. Column limit: 80
+### 7. Semicolon
+### 8. Array
+### 9. Object
+### 10.  Functions
 
 
 ### 1. Statement
@@ -33,7 +38,7 @@ var allMovies = y + 2;
 *Write comments for code-block headings, to explain code and define last curly brackets*
 
 good example
-// ========================================================================= // Declaration of x variable // ============================================================================
+// Declaration of x variable //
 
 var x = y + 2; // adds 2 to y
 
@@ -86,7 +91,7 @@ You shouldn’t put a semicolon after a closing curly bracket }*
 ### 8. Array
 *Include a trailing comma whenever there is a line break between the final element and the closing bracket.*
 
-example 
+good example 
 
 var vehicles = [
   {
@@ -126,5 +131,24 @@ var vehicles = [
   }
   ];
 
-  ### 9. Object
+### 9. Object
 *Include a trailing comma whenever there is a line break between the final property and the closing brace.*
+
+### 10.  Functions
+*Prefer to put all function arguments on the same line as the function name. If doing so would exceed the 80-column limit, the arguments must be line-wrapped in a readable way. To save space, you may wrap as close to 80 as possible, or put each argument on its own line to enhance readability. Indentation should be four spaces. Aligning to the parenthesis is allowed, but discouraged. Below are the most common patterns for argument wrapping:*
+
+good example 
+
+document.getElementById("vechicleSearchBtn").addEventListener("click", () => {
+    var i;
+    for (i = 0; i < vehicles.length; i++) {
+      if (
+        days <= vehicles[i].maxDay &&
+        days >= vehicles[i].minDay &&
+        people <= vehicles[i].maxPeople &&
+        people >= vehicles[i].minPeople
+      ) {
+        displayCards(i);
+      }
+    } //for
+  });
