@@ -10,7 +10,8 @@
 ### 7. Semicolon
 ### 8. Array
 ### 9. Object
-### 10.  Functions
+### 10. Functions
+### 11. Loops
 
 
 ### 1. Statement
@@ -91,8 +92,13 @@ You shouldn’t put a semicolon after a closing curly bracket }*
 ### 8. Array
 *Include a trailing comma whenever there is a line break between the final element and the closing bracket.*
 
-good example 
 
+*An array is a numbered variable that can hold more then one value at the same times. Array elements can also be classed as a special type of object.*
+
+bad example
+var points = new Array();
+
+good example 
 var vehicles = [
   {
     id: 101,
@@ -134,7 +140,20 @@ var vehicles = [
 ### 9. Object
 *Include a trailing comma whenever there is a line break between the final property and the closing brace.*
 
-### 10.  Functions
+*Objects assign a simple value under the property to a variable (car for example). Each car has the same properties but different values.*
+
+bad example
+{ id : 101 , name : 'Nissan Leaf', type : 'Large car', photo : 'car1.png'
+
+{ id : 101 , name : 'Nissan Leaf', type : 'Large car', photo : 'car1.png' }
+
+good example
+id : 101 , name : 'Nissan Leaf', type : 'Large car', photo : 'car1.png',
+
+{ id : 102 , name : 'Nissan Leaf', type : 'Large car', photo : 'car1.png' }
+
+
+### 10. Functions
 *Prefer to put all function arguments on the same line as the function name. If doing so would exceed the 80-column limit, the arguments must be line-wrapped in a readable way. To save space, you may wrap as close to 80 as possible, or put each argument on its own line to enhance readability. Indentation should be four spaces. Aligning to the parenthesis is allowed, but discouraged. Below are the most common patterns for argument wrapping:*
 
 good example 
@@ -152,3 +171,21 @@ document.getElementById("vechicleSearchBtn").addEventListener("click", () => {
       }
     } //for
   });
+
+
+### 11. Loops
+*Loops allow an action to be repeated any number of times (or even no times) based on a condition. There are many different variations of loops such as for, of and while.*
+
+bad example
+var i = 2; var len = vehicles.length; var text = ""; for (; i < len; i++) { text += vehicles[i] + ; }
+
+good example
+    var i;
+    for (i = 0; i < vehicles.length; i++) {
+      if (
+        days <= vehicles[i].maxDay &&
+        days >= vehicles[i].minDay &&
+        people <= vehicles[i].maxPeople &&
+        people >= vehicles[i].minPeople
+      ) 
+    } 
